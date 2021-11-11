@@ -1,0 +1,62 @@
+<% layout('layout/boilerplate') %>
+<div class="row">
+  <h1 class="text-center">New Campground</h1>
+  <div class="col-6 offset-3">
+    <form action="/campgrounds/new?_method=POST" method="post">
+      <div class="mb-3">
+        <label class="form-label" for="title">Add place name</label>
+        <input
+          class="form-control"
+          type="text"
+          name="title"
+          id="title"
+          placeholder="place name"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          name="location"
+          id="location"
+          placeholder="location"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="image">Image URL</label>
+        <input
+          class="form-control"
+          type="text"
+          name="image"
+          id="image"
+          placeholder="image url"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          name="description"
+          id="description"
+          placeholder="description"
+        ></textarea>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input
+          name="price"
+          type="text"
+          class="form-control"
+          aria-label="Amount (to the nearest dollar)"
+          placeholder="0.00"
+        />
+      </div>
+      <div class="mb-3 mt-5 d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </form>
+    <a href="/campgrounds">All campgrounds</a>
+  </div>
+</div>
