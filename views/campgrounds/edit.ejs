@@ -5,6 +5,8 @@
     <form
       action="/campgrounds/<%= foundCamp.id %>/edit?_method=PUT"
       method="post"
+      novalidate
+      class="validated-form"
     >
       <div class="mb-3">
         <label class="form-label" for="title">Add place name</label>
@@ -15,8 +17,12 @@
           id="title"
           placeholder="place name"
           value="<%=foundCamp.title %> "
+          required
         />
+        <div class="valid-feedback">Looks Good</div>
+        <div class="invalid-feedback">Please fill out the form above</div>
       </div>
+
       <div class="mb-3">
         <label class="form-label" for="location">Location</label>
         <input
@@ -26,8 +32,12 @@
           id="location"
           placeholder="location"
           value="<%= foundCamp.location %> "
+          required
         />
+        <div class="valid-feedback">Looks Good</div>
+        <div class="invalid-feedback">Please fill out the form above</div>
       </div>
+
       <div class="mb-3">
         <label class="form-label" for="image">Image URL</label>
         <input
@@ -37,8 +47,12 @@
           id="image"
           placeholder="image url"
           value="<%= foundCamp.image %> "
+          required
         />
+        <div class="valid-feedback">Looks Good</div>
+        <div class="invalid-feedback">Please fill out the form above</div>
       </div>
+
       <div class="mb-3">
         <label class="form-label" for="description">Description</label>
         <textarea
@@ -60,8 +74,12 @@
           aria-label="Amount (to the nearest dollar)"
           placeholder="0.00"
           value="<%= foundCamp.price %> "
+          required
         />
+        <div class="valid-feedback">Looks Good</div>
+        <div class="invalid-feedback">Please fill out the form above</div>
       </div>
+
       <div class="mb-3 mt-5 d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-success">Submit</button>
       </div>

@@ -53,13 +53,15 @@ app.put("/campgrounds/:id/edit", async (req, res) => {
   res.redirect(`/campgrounds/${id}`);
 });
 
-app.post("/campgrounds/new", async (req, res) => {
-  data = req.body;
-  const newCamp = new campground(data);
-  console.log(data);
-  console.log(data.campground);
-  await newCamp.save();
-  res.redirect(`/campgrounds/${newCamp.id}`);
+app.post("/campgrounds/new", async (req, res, next) => {
+  try {
+    data = req.body;
+    const newCamp = new campground(data);
+    await newCamp.save();
+    res.redirect(`/campgrounds/${newCamp.id}`);
+  } catch (e) {
+    next(e);
+  }
 });
 
 app.delete("/campgrounds/:id/delete", async (req, res) => {
@@ -68,9 +70,11 @@ app.delete("/campgrounds/:id/delete", async (req, res) => {
   res.redirect("/campgrounds");
 });
 
-app.get("*", (req, res) => {
-  res.send("INVALID ADDRESS");
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.send("ERROR RECEIVED IN ERROR HANDLING FUNCTION LINE 73 IN APP JS");
 });
+
 app.listen("3000", () => {
   console.log("LISTEING ON PORT 3000");
 });

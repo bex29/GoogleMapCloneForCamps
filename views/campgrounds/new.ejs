@@ -2,7 +2,12 @@
 <div class="row">
   <h1 class="text-center">New Campground</h1>
   <div class="col-6 offset-3">
-    <form action="/campgrounds/new?_method=POST" method="post">
+    <form
+      action="/campgrounds/new?_method=POST"
+      method="post"
+      novalidate
+      class="validated-form"
+    >
       <div class="mb-3">
         <label class="form-label" for="title">Add place name</label>
         <input
@@ -11,7 +16,10 @@
           name="title"
           id="title"
           placeholder="place name"
+          required
         />
+        <div class="valid-feedback">Looks Good</div>
+        <div class="invalid-feedback">Please fill out the form above</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="location">Location</label>
@@ -21,7 +29,10 @@
           name="location"
           id="location"
           placeholder="location"
+          required
         />
+        <div class="valid-feedback">Looks Good</div>
+        <div class="invalid-feedback">Please fill out the form above</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="image">Image URL</label>
@@ -31,7 +42,10 @@
           name="image"
           id="image"
           placeholder="image url"
+          required
         />
+        <div class="invalid-feedback">Please fill out the form above</div>
+        <div class="valid-feedback">Looks Good</div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="description">Description</label>
@@ -41,8 +55,11 @@
           name="description"
           id="description"
           placeholder="description"
+          required
         ></textarea>
       </div>
+      <div class="valid-feedback">Looks Good</div>
+      <div class="invalid-feedback">Please fill out the form above</div>
       <div class="input-group mb-3">
         <span class="input-group-text">$</span>
         <input
@@ -51,7 +68,10 @@
           class="form-control"
           aria-label="Amount (to the nearest dollar)"
           placeholder="0.00"
+          required
         />
+        <div class="valid-feedback">Looks Good</div>
+        <div class="invalid-feedback">Please fill out the form above</div>
       </div>
       <div class="mb-3 mt-5 d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-success">Submit</button>
@@ -60,3 +80,4 @@
     <a href="/campgrounds">All campgrounds</a>
   </div>
 </div>
+
